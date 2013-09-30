@@ -22,6 +22,8 @@ bool initialise()
 {
 	// Set clear colour to cyan
 	glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
+	// Enable face culling
+	glEnable(GL_CULL_FACE);
 	return true;
 }
 
@@ -41,9 +43,13 @@ void render()
 	glColor3f(1.0f, 0.0f, 0.0f);
 	// Render a triangle
 	glBegin(GL_TRIANGLES);
+		glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
 		glVertex3f(0.0f, 0.5f, 0.0f);
+		glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
 		glVertex3f(-0.5f, -0.5f, 0.0f);
-
+		glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+		glVertex3f(0.5f, -0.5f, 0.0f);
+	glEnd();
 	// Swap front and back buffers
 	glfwSwapBuffers(window);
 }
